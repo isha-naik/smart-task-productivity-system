@@ -157,7 +157,7 @@ components:
           type: string
           format: date-time
           readOnly: true
-          example: "2026-05-08T10:30:00"
+          example: "2026-05-08T10:30:00Z"
         assignedToId:
           type: integer
           format: int64
@@ -495,6 +495,15 @@ paths:
           description: Tasks retrieved
           content:
             application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/TaskDTO'
               example:
                 success: true
                 message: "Tasks retrieved"
@@ -527,6 +536,10 @@ paths:
                     categoryName: "Development"
         '401':
           description: Missing or invalid JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
     post:
       tags: [Tasks]
@@ -588,6 +601,10 @@ paths:
           description: Validation error (title missing, invalid status/priority)
         '401':
           description: Missing or invalid JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /api/tasks/{id}:
     get:
@@ -684,6 +701,10 @@ paths:
                   assignedToName: "Priya Patel"
         '401':
           description: Missing or invalid JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
         '403':
           description: Employee trying to update another user's task
         '404':
@@ -731,6 +752,15 @@ paths:
           description: Categories retrieved
           content:
             application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/CategoryDTO'
               example:
                 success: true
                 message: "Categories retrieved"
@@ -811,6 +841,15 @@ paths:
           description: Users retrieved
           content:
             application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/UserDTO'
               example:
                 success: true
                 message: "Users retrieved"
@@ -904,6 +943,13 @@ paths:
           description: Analytics retrieved
           content:
             application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/AnalyticsDTO'
               example:
                 success: true
                 message: "Analytics retrieved"
@@ -929,6 +975,10 @@ paths:
                     HIGH: 4
         '401':
           description: Missing or invalid JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   # ════════════════════════════════════════════════════════
   #  INSIGHTS
@@ -949,6 +999,13 @@ paths:
           description: Insights generated
           content:
             application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/InsightDTO"
               examples:
                 at_risk:
                   summary: AT_RISK status example
@@ -957,10 +1014,10 @@ paths:
                     message: "Insights generated"
                     data:
                       insights:
-                        - "⚠️ You have 1 overdue task that needs immediate attention."
-                        - "🔴 4 high-priority tasks require your focus — tackle these first."
-                        - "📊 Your completion rate is 20% — there is significant room for improvement."
-                        - "⏳ 3 tasks are currently in progress. Stay focused to complete them."
+                        - "You have 1 overdue task that needs immediate attention."
+                        - "4 high-priority tasks require your focus — tackle these first."
+                        - "Your completion rate is 20% — there is significant room for improvement."
+                        - "3 tasks are currently in progress. Stay focused to complete them."
                       overallStatus: "AT_RISK"
                       productivityScore: 44
                       recommendation: "Focus on resolving overdue tasks immediately, then work through high-priority items systematically."
@@ -971,10 +1028,18 @@ paths:
                     message: "Insights generated"
                     data:
                       insights:
-                        - "🌟 Outstanding performance! You have completed all your tasks."
-                        - "✅ Keep up the excellent work and take on new challenges."
+                        - "Outstanding performance! You have completed all your tasks."
+                        - "Keep up the excellent work and take on new challenges."
                       overallStatus: "EXCELLENT"
                       productivityScore: 100
                       recommendation: "Excellent work! Consider mentoring teammates or taking on stretch goals."
         '401':
           description: Missing or invalid JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: "Invalid or missing JWT token"
+                data: null
