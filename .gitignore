@@ -1,0 +1,42 @@
+# ===========================
+# Node / Frontend
+# ===========================
+node_modules/
+dist/
+build/
+.npm
+npm-debug.log*
+
+# ===========================
+# Java / Maven Backend
+# ===========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ===========================
+# IDE / Editor
+# ===========================
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ===========================
+# Environment & Secrets
+# ===========================
+.env
+.env.local
+.env.production
+*.log
+
+# ===========================
+# OS
+# ===========================
+.DS_Store
+Thumbs.db
