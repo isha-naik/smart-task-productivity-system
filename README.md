@@ -75,6 +75,7 @@ App runs at **http://localhost:5173**
 ## Project Structure
 
 ```
+Smart Task & Productivity Management System
 ├── task-management-backend/     ← Spring Boot REST API
 │   └── src/main/java/com/taskmanager/
 │       ├── controller/          ← REST endpoints
@@ -112,7 +113,7 @@ App runs at **http://localhost:5173**
 | GET | /api/analytics | Authenticated |
 | GET | /api/insights | Authenticated |
 
-Full API docs: `swagger.yaml` or run backend and visit `/swagger-ui.html`
+Full API docs: `swagger.yaml` or run backend and visit `http://localhost:8081/swagger-ui/index.html#/`
 
 ---
 
