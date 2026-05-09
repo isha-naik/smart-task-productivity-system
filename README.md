@@ -1,8 +1,12 @@
 # TaskFlow — Smart Task & Productivity Management System
 
-> Full-stack web application | SE ZG503 — Full Stack Application Development
+> Full-stack web application | S2-25 SEZG503 — Full Stack Application Development
 
-A production-style task management platform built with **Spring Boot 3** (backend) and **React + Vite** (frontend), featuring JWT authentication, role-based access control, real-time analytics, and AI-generated productivity insights.
+**TaskFlow** is a SaaS-style team productivity and task management platform designed for organisations where Managers assign and track tasks across their team, and Employees manage and update their own workload — all through a single, role-aware web application.
+
+The system solves a common workplace problem: teams lack a centralised platform to assign tasks, monitor deadlines, track priorities, and measure productivity in real time. TaskFlow addresses this with a production-pattern architecture — a stateless Spring Boot REST API secured with JWT, a React SPA with live analytics dashboards, and an AI-powered insights engine that generates contextual productivity recommendations based on each user's task data.
+
+Key capabilities: JWT-secured login, role-based views (Manager vs Employee), full task CRUD with priority and due dates, Chart.js analytics with a productivity score gauge, dark mode UI, and a notification bell for overdue/due-soon tasks.
 
 ---
 
@@ -11,9 +15,9 @@ A production-style task management platform built with **Spring Boot 3** (backen
 | Layer | Technology |
 |---|---|
 | Frontend | React 18, Vite 5, Tailwind CSS 3, Chart.js 4, React Router 6 |
-| Backend | Spring Boot 3.3.5, Spring Security 6, Spring Data JPA |
+| Backend | Spring Boot 3.3.5, Spring Security 6, Spring Data JPA, Java 23 |
 | Auth | JWT (JJWT 0.11.5) — stateless, role-based |
-| Database | PostgreSQL 14+ |
+| Database | PostgreSQL 15+ |
 | API Docs | OpenAPI 3.0 / Swagger UI |
 
 ---
@@ -27,6 +31,7 @@ A production-style task management platform built with **Spring Boot 3** (backen
 - **Productivity Score** — 0–100 score calculated from task patterns
 - **AI Insights** — backend-generated natural language productivity recommendations
 - **Admin Panel** — Manager-only team overview and category management
+- **Dark Mode** — full dark/light theme toggle
 
 ---
 
@@ -37,13 +42,14 @@ A production-style task management platform built with **Spring Boot 3** (backen
 | Manager | manager@taskmanager.com | manager123 |
 | Employee | priya@employee.com | employee123 |
 | Employee | rahul@employee.com | employee123 |
+| Employee | sneha@employee.com | employee123 |
 
 ---
 
 ## Setup & Run
 
 ### Prerequisites
-- Java 17+, Maven 3.8+, Node.js 18+, PostgreSQL 14+
+- Java 23, Maven 3.9+, Node.js 18+, PostgreSQL 15+
 
 ### 1. Database
 ```sql
@@ -54,10 +60,11 @@ CREATE DATABASE task_management_db;
 ```bash
 cd task-management-backend
 # Edit src/main/resources/application.properties with your DB password
+mvn clean install -DskipTests
 mvn spring-boot:run
 ```
-Backend starts at **http://localhost:8080**  
-Swagger UI: **http://localhost:8080/swagger-ui.html**
+Backend starts at **http://localhost:8081**  
+Swagger UI: **http://localhost:8081/swagger-ui/index.html**
 
 ### 3. Frontend
 ```bash
@@ -94,7 +101,8 @@ Smart Task & Productivity Management System
 │       └── utils/               ← Auth helpers, formatters
 ├── swagger.yaml                 ← OpenAPI 3.0 API specification
 ├── PROJECT_DOCUMENTATION.md    ← Full project documentation
-├── AI_Usage_Log_and_Reflection.docx ← AI usage log and reflection
+├── SETUP_GUIDE.md               ← Step-by-step setup instructions
+├── AI_Usage_Log_and_Reflection.docx ← AI usage log and reflection report
 └── README.md                   ← This file
 ```
 
@@ -113,11 +121,12 @@ Smart Task & Productivity Management System
 | GET | /api/analytics | Authenticated |
 | GET | /api/insights | Authenticated |
 
-Full API docs: `swagger.yaml` or run backend and visit `http://localhost:8081/swagger-ui/index.html#/`
+Full API docs: `swagger.yaml` or run backend and visit `http://localhost:8081/swagger-ui/index.html`
 
 ---
 
 ## AI Assistance
 
-Built using **Option A** — developed from scratch with Claude (Anthropic) assistance.  
-See `AI_Usage_Log_and_Reflection.docx` for the full AI usage log and reflection report.
+Built using **Option A** — developed from scratch with AI assistance.  
+AI tools used: **Claude (Anthropic)**, **GitHub Copilot**, **ChatGPT**  
+See `AI_Usage_Log_and_Reflection.docx` for the full usage log, prompt examples, and reflection.
