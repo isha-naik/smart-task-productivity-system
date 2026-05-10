@@ -3,7 +3,7 @@
 > Full-stack web application | S2-25 SEZG503 — Full Stack Application Development
 
 ## Demo Video
-[![TaskFlow Demo](https://drive.google.com/file/d/1G6-3NsRwxYpXGW-8Im63yLNgREIeq1N_/view?usp=drive_link)](https://drive.google.com/file/d/FILE_ID/view)
+[![TaskFlow Demo](https://drive.google.com/thumbnail?id=1G6-3NsRwxYpXGW-8Im63yLNgREIeq1N_)](https://drive.google.com/file/d/1G6-3NsRwxYpXGW-8Im63yLNgREIeq1N_/view?usp=sharing)
 
 **TaskFlow** is a SaaS-style team productivity and task management platform designed for organisations where Managers assign and track tasks across their team, and Employees manage and update their own workload — all through a single, role-aware web application.
 
