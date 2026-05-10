@@ -2,6 +2,9 @@
 
 > Full-stack web application | S2-25 SEZG503 — Full Stack Application Development
 
+## Demo Video
+[![TaskFlow Demo](https://drive.google.com/file/d/1G6-3NsRwxYpXGW-8Im63yLNgREIeq1N_/view?usp=drive_link)](https://drive.google.com/file/d/FILE_ID/view)
+
 **TaskFlow** is a SaaS-style team productivity and task management platform designed for organisations where Managers assign and track tasks across their team, and Employees manage and update their own workload — all through a single, role-aware web application.
 
 The system solves a common workplace problem: teams lack a centralised platform to assign tasks, monitor deadlines, track priorities, and measure productivity in real time. TaskFlow addresses this with a production-pattern architecture — a stateless Spring Boot REST API secured with JWT, a React SPA with live analytics dashboards, and an AI-powered insights engine that generates contextual productivity recommendations based on each user's task data.
