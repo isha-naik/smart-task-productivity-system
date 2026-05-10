@@ -133,3 +133,6 @@ Full API docs: `swagger.yaml` or run backend and visit `http://localhost:8081/sw
 Built using **Option A** — developed from scratch with AI assistance.  
 AI tools used: **Claude (Anthropic)**, **GitHub Copilot**, **ChatGPT**  
 See `AI_Usage_Log_and_Reflection.docx` for the full usage log, prompt examples, and reflection.
+
+## Final Project Documentation
+[![TaskFlow Documentation](https://img.shields.io/badge/📄%20Documentation-Google%20Docs-blue)](https://docs.google.com/document/d/1aB3dGFx3IjVMKRg4EApqZlWqnfNHKPt_/edit?usp=sharing)
